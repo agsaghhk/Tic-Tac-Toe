@@ -1,20 +1,5 @@
 <?php
       
-   #print formatted for user turns
-/*   for($i=0; $i<count($board); $i++){
-      for($I=0; $I<count($board[$i]) ; $I++){
-         if( $board[$i][$I]==0){
-	    echo " ";
-	 }
-	 else if( $board[$i][$I]==1){
-	    echo "X";
-	 }
-	 else{
-	    echo "O";
-	 }
-      }
-      echo "\n";
-   }*/
 
    #create an empty board
    $boards=array(array(0,0,0,0,0),array(0,0,0,0,0),array(0,0,0,0,0),array(0,0,0,0,0),array(0,0,0,0,0));
@@ -28,7 +13,15 @@
    $move=fgets(STDIN);
    
    while(substr($move,0,1)!="q"){
+	   
+	   #used to determine if move was invalid
 	   $invalid=0;
+	   
+	   #set up variables for indexed spaces
+	   $space1=0;
+	   $space2=2;
+	   $space3=4;
+	   
 	   #check if user string is appropriate length
 	   if(strlen($move)!=5){
 	      
@@ -59,10 +52,6 @@
 	      $x=substr($move,0,1);
 	      $y=substr($move,2,1);
 	      
-	      #set up variables for indexed spaces
-	      $space1=0;
-	      $space2=2;
-	      $space3=4;
 	      
 	      if($x==1){
 		 
@@ -230,6 +219,13 @@
 	         $playerTurn=1;
 	      }
 	   }   
+	   
+	   if($boards[0][0]!=0){
+	      $check=$boards[0][0];
+	      if($boards[$space1][$space2]==$check && $boards[$space1][$space3]==$check){
+	         echo "Game Over\n";
+	      }
+	   }
 	   fprintf(STDOUT,"Player %d make a move:",$playerTurn);
 	   $move=fgets(STDIN);
 	}
