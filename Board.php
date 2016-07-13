@@ -157,7 +157,7 @@
 		 elseif($y==2){
 		    
 		    if($boards[$space3][$space2]==0){
-		       $boards[$space3][$space2]==$playerTurn;
+		       $boards[$space3][$space2]=$playerTurn;
 		    }
 		    else{
 		       echo "Space already taken, please try again\n";
@@ -220,10 +220,43 @@
 	      }
 	   }   
 	   
-	   if($boards[0][0]!=0){
-	      $check=$boards[0][0];
-	      if($boards[$space1][$space2]==$check && $boards[$space1][$space3]==$check){
-	         echo "Game Over\n";
+	   if($boards[$space1][$space1]!=0){
+	      $check=$boards[$space1][$space1];
+	      if($boards[$space1][$space2]==$check And $boards[$space1][$space3]==$check){
+	         echo "Game Over 1\n";
+	      }
+	      elseif($boards[$space2][$space2]==$check And $boards[$space3][$space3]==$check){
+	         echo "Game Over 2\n";
+              }
+	      elseif($boards[$space2][$space1]==$check And $boards[$space3][$space1]==$check){
+	         echo "Game Over 3\n";
+	      }
+	   }
+	   if($boards[$space1][$space2]!=0){
+	      $check=$boards[$space1][$space2];
+	      if($boards[$space2][$space2]==$check And $boards[$space3][$space2]==$check){
+	         echo "Game Over 4\n";
+              }
+	   }
+	   if($boards[$space1][$space3]!=0){
+	      $check=$boards[$space1][$space3];
+	      if($boards[$space2][$space3]==$check And $boards[$space3][$space3]==$check){
+	         echo "Game Over 5\n";
+	      }
+	      if($boards[$space2][$space2]==$check And $boards[$space3][$space1]==$check){
+	         echo "Game Over 6\n";
+	      }
+	   }
+	   if($boards[$space2][$space1]!=0){
+	      $check=$boards[$space2][$space1];
+	      if($boards[$space2][$space2]==$check And $boards[$space2][$space3]==$check){
+	         echo "Game over 7\n";
+              }
+	   }
+	   if($boards[$space3][$space1]!=0){
+	      $check=$boards[$space3][$space1];
+	      if($boards[$space3][$space2]==$check And $boards[$space3][$space3]==$check){
+	         echo "Game Over 8\n";
 	      }
 	   }
 	   fprintf(STDOUT,"Player %d make a move:",$playerTurn);
