@@ -259,6 +259,11 @@
 	         echo "Game Over 8\n";
 	      }
 	   }
+	   if($boards[$space1][$space1]!=0 And $boards[$space1][$space2]!=0 And $boards[$space1][$space3]!=0 And
+	      $boards[$space2][$space1]!=0 And $boards[$space2][$space2]!=0 And $boards[$space2][$space3]!=0 And
+	      $boards[$space3][$space1]!=0 And $boards[$space3][$space2]!=0 And $boards[$space3][$space3]!=0){
+	      echo "Game Over 9\n";
+	   }
 	   fprintf(STDOUT,"Player %d make a move:",$playerTurn);
 	   $move=fgets(STDIN);
 	}
