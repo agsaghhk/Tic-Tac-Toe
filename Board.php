@@ -204,7 +204,6 @@
 		       else{
 		          echo " ";
 		       }
-		       #echo $boards[$z][$Z];
 		    }
 		 }
 		 echo "\n";
@@ -223,46 +222,55 @@
 	   if($boards[$space1][$space1]!=0){
 	      $check=$boards[$space1][$space1];
 	      if($boards[$space1][$space2]==$check And $boards[$space1][$space3]==$check){
-	         echo "Game Over 1\n";
+	         echo "Game Over player $check wins\n";
+		 exit;
 	      }
 	      elseif($boards[$space2][$space2]==$check And $boards[$space3][$space3]==$check){
-	         echo "Game Over 2\n";
+	         echo "Game Over player $check wins\n";
+		 exit;
               }
 	      elseif($boards[$space2][$space1]==$check And $boards[$space3][$space1]==$check){
-	         echo "Game Over 3\n";
+	         echo "Game Over player $check wins\n";
+		 exit;
 	      }
 	   }
 	   if($boards[$space1][$space2]!=0){
 	      $check=$boards[$space1][$space2];
 	      if($boards[$space2][$space2]==$check And $boards[$space3][$space2]==$check){
-	         echo "Game Over 4\n";
+	         echo "Game Over player $check wins\n";
+		 exit;
               }
 	   }
 	   if($boards[$space1][$space3]!=0){
 	      $check=$boards[$space1][$space3];
 	      if($boards[$space2][$space3]==$check And $boards[$space3][$space3]==$check){
-	         echo "Game Over 5\n";
+	         echo "Game Over player $check wins\n";
+		 exit;
 	      }
 	      if($boards[$space2][$space2]==$check And $boards[$space3][$space1]==$check){
-	         echo "Game Over 6\n";
+	         echo "Game Over player $check wins\n";
+		 exit;
 	      }
 	   }
 	   if($boards[$space2][$space1]!=0){
 	      $check=$boards[$space2][$space1];
 	      if($boards[$space2][$space2]==$check And $boards[$space2][$space3]==$check){
-	         echo "Game over 7\n";
+	         echo "Game over player $check wins\n";
+		 exit;
               }
 	   }
 	   if($boards[$space3][$space1]!=0){
 	      $check=$boards[$space3][$space1];
 	      if($boards[$space3][$space2]==$check And $boards[$space3][$space3]==$check){
-	         echo "Game Over 8\n";
+	         echo "Game Over player $check wins\n";
+		 exit;
 	      }
 	   }
 	   if($boards[$space1][$space1]!=0 And $boards[$space1][$space2]!=0 And $boards[$space1][$space3]!=0 And
 	      $boards[$space2][$space1]!=0 And $boards[$space2][$space2]!=0 And $boards[$space2][$space3]!=0 And
 	      $boards[$space3][$space1]!=0 And $boards[$space3][$space2]!=0 And $boards[$space3][$space3]!=0){
-	      echo "Game Over 9\n";
+	      echo "Game Over. It's a tie.\n";
+	      exit;
 	   }
 	   fprintf(STDOUT,"Player %d make a move:",$playerTurn);
 	   $move=fgets(STDIN);
